@@ -1,0 +1,1339 @@
+/* ========================================
+   REINICIO GENERAL
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   CONFIGURACIÓN GENERAL
+======================================== */
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #f5f1e8;
+    color: #14243a;
+    font-family: "Manrope", Arial, sans-serif;
+}
+
+
+/* ========================================
+   ESTRUCTURA PRINCIPAL
+======================================== */
+
+.estructura-pagina {
+    width: 100%;
+    min-height: 100vh;
+}
+
+
+/* ========================================
+   BARRA LATERAL
+======================================== */
+
+.barra-lateral {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 143px;
+    height: 100vh;
+
+    padding: 28px 24px;
+    overflow-y: auto;
+
+    background-color: #14243a;
+    color: #f5f1e8;
+}
+
+.monograma {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 44px;
+    line-height: 1;
+    text-decoration: none;
+    color: #f5f1e8;
+}
+
+.navegacion-lateral {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 64px;
+}
+
+.enlace-lateral {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    text-decoration: none;
+    color: #d9e0e7;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.numero-lateral {
+    color: #f5f1e8;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 32px;
+}
+
+.nombre-seccion {
+    font-size: 13px;
+}
+
+.enlace-lateral::after {
+    content: "";
+
+    width: 20px;
+    height: 2px;
+
+    margin-top: 8px;
+
+    background-color: #d9e0e7;
+
+    transition: width 0.3s ease;
+}
+
+.enlace-lateral:hover::after {
+    width: 36px;
+}
+
+.enlace-lateral:hover {
+    color: #d9e0e7;
+    transform: translateX(5px);
+}
+
+.mensaje-lateral {
+    width: 100%;
+    margin-top: auto;
+    padding-top: 32px;
+
+    font-size: 10px;
+    line-height: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    overflow-wrap: break-word;
+}
+
+
+/* ========================================
+   CONTENIDO PRINCIPAL
+======================================== */
+
+.contenido-principal {
+    width: calc(100% - 143px);
+    margin-left: 143px;
+
+    min-width: 0;
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-rows: 56px minmax(0, 1fr) auto;
+}
+
+
+/* ========================================
+   ENCABEZADO PRINCIPAL
+======================================== */
+
+.encabezado-principal {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    height: 56px;
+
+    padding: 0 40px;
+
+    background-color: #f5f1e8;
+    border-bottom: 1px solid #d6d0c5;
+}
+
+
+/* ========================================
+   NAVEGACIÓN SUPERIOR
+======================================== */
+
+.navegacion-superior {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.enlace-superior {
+    position: relative;
+
+    padding: 17px 0;
+
+    color: #14243a;
+    font-size: 13px;
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+}
+
+.enlace-superior::after {
+    content: "";
+
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+
+    width: 0;
+    height: 2px;
+
+    background-color: #9f5033;
+
+    transition: width 0.3s ease;
+}
+
+.enlace-superior:hover {
+    color: #9f5033;
+}
+
+.enlace-superior:hover::after,
+.enlace-superior.activo::after {
+    width: 100%;
+}
+
+
+/* ========================================
+   PORTADA
+======================================== */
+
+.portada {
+    display: flex;
+    align-items: center;
+
+    min-height: 0;
+
+    padding: 24px 48px;
+
+    overflow: hidden;
+}
+
+.contenido-portada {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.15fr)
+        minmax(280px, 0.85fr);
+
+    align-items: center;
+
+    gap: 40px;
+
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+}
+
+.presentacion-portada {
+    position: relative;
+    z-index: 2;
+
+    min-width: 0;
+}
+
+.etiqueta-profesional {
+    margin-bottom: 18px;
+
+    color: #9f5033;
+
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.nombre-principal {
+    margin-bottom: 12px;
+
+    color: #14243a;
+
+    font-family: "Cormorant Garamond", Georgia, serif;
+
+    font-size: clamp(54px, 5.5vw, 88px);
+    font-weight: 600;
+
+    line-height: 0.9;
+    letter-spacing: -3px;
+}
+
+.frase-principal {
+    max-width: 620px;
+
+    margin-bottom: 12px;
+
+    color: #14243a;
+
+    font-family: "Cormorant Garamond", Georgia, serif;
+
+    font-size: clamp(28px, 3vw, 43px);
+    font-weight: 600;
+
+    line-height: 1.05;
+}
+
+.descripcion-portada {
+    max-width: 540px;
+
+    color: #4f5a68;
+
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+
+/* ========================================
+   BOTONES PORTADA
+======================================== */
+
+.acciones-portada {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 22px;
+}
+
+.boton {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 14px;
+
+    min-height: 46px;
+
+    padding: 0 18px;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    border: 1px solid #14243a;
+
+    transition:
+        color 0.3s ease,
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.boton-principal {
+    background-color: #9f5033;
+    border-color: #9f5033;
+    color: #ffffff;
+}
+
+.boton-secundario {
+    background-color: transparent;
+    color: #14243a;
+}
+
+.boton:hover {
+    transform: translateY(-3px);
+}
+
+.boton-principal:hover {
+    background-color: #14243a;
+    border-color: #14243a;
+}
+
+.boton-secundario:hover {
+    background-color: #14243a;
+    color: #ffffff;
+}
+
+
+/* ========================================
+   FOTOGRAFÍA
+======================================== */
+
+.retrato-portada {
+    width: 100%;
+    max-width: 320px;
+
+    margin: 0 auto;
+}
+
+.contenedor-fotografia {
+    position: relative;
+
+    width: 100%;
+    aspect-ratio: 4 / 5;
+
+    overflow: visible;
+}
+
+.contenedor-fotografia::before {
+    content: "";
+
+    position: absolute;
+
+    top: 70px;
+    left: -50px;
+
+    width: 72%;
+    height: 72%;
+
+    background-color: #e4edf1;
+
+    z-index: 0;
+}
+
+.fotografia-personal {
+    position: relative;
+
+    z-index: 1;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    background-color: #ded6cc;
+}
+
+.disponibilidad {
+    position: absolute;
+
+    top: 24px;
+    right: -70px;
+
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    width: max-content;
+    max-width: 220px;
+
+    padding: 14px 18px;
+
+    background-color: #9f5033;
+    color: #ffffff;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    line-height: 1.5;
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+.punto-disponible {
+    flex-shrink: 0;
+
+    width: 10px;
+    height: 10px;
+
+    background-color: #ffffff;
+
+    border-radius: 50%;
+}
+
+.ubicacion {
+    position: relative;
+    z-index: 2;
+
+    margin-top: 24px;
+
+    color: #4f5a68;
+
+    font-size: 13px;
+
+    text-align: right;
+}
+
+
+/* ========================================
+   FRANJA DE CONOCIMIENTOS
+======================================== */
+
+.franja-conocimientos {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 12px 48px;
+
+    border-top: 1px solid #d6d0c5;
+}
+
+.lista-tecnologias {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 12px 20px;
+
+    list-style: none;
+}
+
+.lista-tecnologias li {
+    color: #14243a;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+.lista-tecnologias li:not(:last-child)::after {
+    content: "/";
+
+    margin-left: 20px;
+
+    color: #9f5033;
+}
+
+.lema-franja {
+    flex-shrink: 0;
+
+    color: #4f5a68;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+/* ========================================
+   SECCIONES GENERALES
+======================================== */
+
+.seccion-perfil,
+.seccion-conocimientos,
+.seccion-formacion,
+.seccion-contacto {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 60px;
+
+    padding: 80px 70px;
+}
+
+.seccion-perfil,
+.seccion-conocimientos,
+.seccion-formacion {
+    border-bottom: 1px solid #d6d0c5;
+}
+
+.numero-seccion {
+    display: block;
+
+    margin-bottom: 18px;
+
+    color: #9f5033;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+}
+
+.encabezado-seccion {
+    min-width: 0;
+}
+
+.encabezado-seccion h2 {
+    max-width: 480px;
+
+    font-family: "Cormorant Garamond", Georgia, serif;
+
+    font-size: clamp(42px, 4vw, 64px);
+    font-weight: 600;
+
+    line-height: 1;
+}
+
+
+/* ========================================
+   PERFIL
+======================================== */
+
+.texto-perfil {
+    min-width: 0;
+
+    align-self: center;
+}
+
+.texto-perfil p {
+    margin-bottom: 18px;
+
+    color: #4f5a68;
+
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* ========================================
+   CONOCIMIENTOS
+======================================== */
+
+.grupos-conocimientos {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 32px;
+
+    min-width: 0;
+
+    align-self: center;
+}
+
+.grupo-conocimientos {
+    min-width: 0;
+}
+
+.grupo-conocimientos h3 {
+    margin-bottom: 20px;
+
+    color: #14243a;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.grupo-conocimientos ul {
+    list-style: none;
+}
+
+.grupo-conocimientos li {
+    padding: 10px 0;
+
+    color: #4f5a68;
+
+    font-size: 15px;
+
+    border-bottom: 1px solid #d6d0c5;
+}
+
+
+/* ========================================
+   FORMACIÓN
+======================================== */
+
+.lista-formacion {
+    min-width: 0;
+
+    align-self: center;
+}
+
+.item-formacion {
+    position: relative;
+
+    padding: 0 0 32px 28px;
+
+    border-left: 1px solid #9f5033;
+}
+
+.item-formacion:last-child {
+    padding-bottom: 0;
+}
+
+.item-formacion::before {
+    content: "";
+
+    position: absolute;
+
+    top: 4px;
+    left: -5px;
+
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background-color: #9f5033;
+}
+
+.tipo-formacion {
+    color: #9f5033;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+.item-formacion h3 {
+    margin: 8px 0;
+
+    color: #14243a;
+
+    font-family: "Cormorant Garamond", Georgia, serif;
+
+    font-size: 30px;
+
+    line-height: 1.1;
+}
+
+.item-formacion p {
+    color: #4f5a68;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* ========================================
+   CONTACTO
+======================================== */
+
+.seccion-contacto {
+    background-color: #eae5dc;
+}
+
+.contenido-contacto {
+    min-width: 0;
+
+    align-self: center;
+}
+
+.contenido-contacto > p {
+    max-width: 480px;
+
+    margin-bottom: 28px;
+
+    color: #4f5a68;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+.enlaces-contacto {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+.enlace-contacto {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 0;
+
+    padding: 18px 0;
+
+    border-top: 1px solid #b9b2a8;
+
+    color: #14243a;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    overflow-wrap: anywhere;
+
+    transition: color 0.3s ease;
+}
+
+.enlace-contacto span:first-child {
+    min-width: 0;
+
+    overflow-wrap: anywhere;
+}
+
+.enlace-contacto:last-child {
+    border-bottom: 1px solid #b9b2a8;
+}
+
+.enlace-contacto:hover {
+    color: #9f5033;
+}
+
+
+/* ========================================
+   PIE DE PÁGINA
+======================================== */
+
+.pie-pagina {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 24px 70px;
+
+    background-color: #14243a;
+    color: #f5f1e8;
+}
+
+.pie-pagina p,
+.pie-pagina a {
+    font-size: 12px;
+}
+
+.pie-pagina a {
+    color: #f5f1e8;
+
+    text-decoration: none;
+}
+
+.pie-pagina a:hover {
+    text-decoration: underline;
+}
+
+
+/* ========================================
+   LAPTOPS
+   901px - 1100px
+======================================== */
+
+@media (min-width: 901px) and (max-width: 1100px) {
+
+    .contenido-portada {
+        grid-template-columns:
+            minmax(0, 1.1fr)
+            minmax(250px, 0.9fr);
+
+        gap: 28px;
+    }
+
+    .portada {
+        padding: 36px 36px;
+    }
+
+    .nombre-principal {
+        font-size: clamp(50px, 5vw, 68px);
+    }
+
+    .frase-principal {
+        font-size: clamp(27px, 3vw, 36px);
+    }
+
+    .retrato-portada {
+        max-width: 280px;
+    }
+
+    .contenedor-fotografia::before {
+        top: 45px;
+        left: -35px;
+
+        width: 72%;
+        height: 70%;
+    }
+
+    .disponibilidad {
+        top: 20px;
+        right: -35px;
+
+        max-width: 180px;
+
+        padding: 11px 13px;
+
+        font-size: 9px;
+
+        letter-spacing: 1.5px;
+    }
+
+    .ubicacion {
+        margin-top: 22px;
+    }
+
+    .franja-conocimientos {
+        padding-left: 36px;
+        padding-right: 36px;
+    }
+
+    .seccion-perfil,
+    .seccion-conocimientos,
+    .seccion-formacion,
+    .seccion-contacto {
+        gap: 40px;
+
+        padding: 70px 48px;
+    }
+
+    .grupos-conocimientos {
+        gap: 22px;
+    }
+
+    .pie-pagina {
+        padding-left: 48px;
+        padding-right: 48px;
+    }
+}
+
+
+/* ========================================
+   TABLETS
+   hasta 900px
+======================================== */
+
+@media (max-width: 900px) {
+
+    .estructura-pagina {
+        width: 100%;
+    }
+
+    .barra-lateral {
+        display: none;
+    }
+
+    .contenido-principal {
+        display: block;
+
+        width: 100%;
+        height: auto;
+
+        margin-left: 0;
+
+        min-height: 100vh;
+    }
+
+    .encabezado-principal {
+        height: auto;
+        min-height: 64px;
+
+        padding: 16px 24px;
+    }
+
+    .navegacion-superior {
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 12px 24px;
+
+        width: 100%;
+    }
+
+    .enlace-superior {
+        padding: 6px 0;
+
+        font-size: 13px;
+    }
+
+    .enlace-superior::after {
+        bottom: 0;
+    }
+
+
+    /* Portada */
+
+    .portada {
+        min-height: auto;
+
+        padding: 56px 40px 64px;
+
+        overflow: hidden;
+    }
+
+    .contenido-portada {
+        grid-template-columns: 1fr;
+
+        gap: 48px;
+
+        max-width: 680px;
+    }
+
+    .presentacion-portada {
+        width: 100%;
+    }
+
+    .nombre-principal {
+        font-size: clamp(58px, 10vw, 82px);
+    }
+
+    .frase-principal {
+        max-width: 600px;
+
+        font-size: clamp(32px, 5vw, 43px);
+    }
+
+    .descripcion-portada {
+        max-width: 600px;
+    }
+
+    .retrato-portada {
+        width: min(100%, 340px);
+        max-width: none;
+
+        margin: 0 auto;
+    }
+
+    .contenedor-fotografia::before {
+        top: 60px;
+        left: -40px;
+
+        width: 70%;
+        height: 70%;
+    }
+
+    .disponibilidad {
+        top: 24px;
+        right: -70px;
+
+        max-width: 210px;
+    }
+
+    .ubicacion {
+        margin-top: 24px;
+    }
+
+
+    /* Franja */
+
+    .franja-conocimientos {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 24px 40px;
+    }
+
+
+    /* Secciones */
+
+    .seccion-perfil,
+    .seccion-conocimientos,
+    .seccion-formacion,
+    .seccion-contacto {
+        grid-template-columns: 1fr;
+
+        gap: 32px;
+
+        padding: 64px 40px;
+    }
+
+    .encabezado-seccion h2 {
+        max-width: 600px;
+    }
+
+    .grupos-conocimientos {
+        max-width: 650px;
+    }
+
+    .contenido-contacto {
+        width: 100%;
+    }
+
+    .pie-pagina {
+        padding: 24px 40px;
+    }
+}
+
+
+/* ========================================
+   CELULARES
+   hasta 600px
+======================================== */
+
+@media (max-width: 600px) {
+
+    .encabezado-principal {
+        padding: 14px 18px;
+    }
+
+    .navegacion-superior {
+        gap: 8px 16px;
+    }
+
+    .enlace-superior {
+        font-size: 12px;
+    }
+
+
+    /* Portada */
+
+    .portada {
+        padding: 48px 24px 56px;
+    }
+
+    .contenido-portada {
+        gap: 42px;
+    }
+
+    .etiqueta-profesional {
+        font-size: 11px;
+
+        letter-spacing: 3px;
+    }
+
+    .nombre-principal {
+        font-size: clamp(52px, 15vw, 72px);
+
+        letter-spacing: -2px;
+    }
+
+    .frase-principal {
+        font-size: clamp(30px, 9vw, 42px);
+    }
+
+    .descripcion-portada {
+        font-size: 15px;
+    }
+
+    .acciones-portada {
+        width: 100%;
+    }
+
+    .boton {
+        flex: 1 1 180px;
+    }
+
+
+    /* Fotografía */
+
+    .retrato-portada {
+        width: min(82%, 290px);
+    }
+
+    .contenedor-fotografia::before {
+        top: 45px;
+        left: -24px;
+
+        width: 72%;
+        height: 72%;
+    }
+
+    .disponibilidad {
+        top: 18px;
+        right: -20px;
+
+        max-width: 165px;
+
+        padding: 10px 12px;
+
+        font-size: 9px;
+
+        letter-spacing: 1.4px;
+    }
+
+    .ubicacion {
+        margin-top: 20px;
+
+        font-size: 12px;
+    }
+
+
+    /* Contenido */
+
+    .franja-conocimientos,
+    .seccion-perfil,
+    .seccion-conocimientos,
+    .seccion-formacion,
+    .seccion-contacto {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .lista-tecnologias {
+        gap: 10px 14px;
+    }
+
+    .lista-tecnologias li:not(:last-child)::after {
+        margin-left: 14px;
+    }
+
+    .lema-franja {
+        line-height: 1.6;
+    }
+
+    .seccion-perfil,
+    .seccion-conocimientos,
+    .seccion-formacion,
+    .seccion-contacto {
+        padding-top: 56px;
+        padding-bottom: 56px;
+    }
+
+    .encabezado-seccion h2 {
+        font-size: clamp(40px, 12vw, 56px);
+    }
+
+    .grupos-conocimientos {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 20px;
+    }
+
+    .item-formacion h3 {
+        font-size: 27px;
+    }
+
+    .enlace-contacto {
+        gap: 12px;
+
+        font-size: 14px;
+
+        overflow-wrap: anywhere;
+    }
+
+    .pie-pagina {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 24px;
+    }
+}
+
+
+/* ========================================
+   CELULARES MUY ANGOSTOS
+   hasta 420px
+======================================== */
+
+@media (max-width: 420px) {
+
+    .encabezado-principal {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .navegacion-superior {
+        gap: 8px 12px;
+    }
+
+    .enlace-superior {
+        font-size: 11px;
+    }
+
+    .portada {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .nombre-principal {
+        font-size: clamp(48px, 15vw, 64px);
+    }
+
+    .frase-principal {
+        font-size: clamp(29px, 9vw, 38px);
+    }
+
+    .acciones-portada {
+        flex-direction: column;
+    }
+
+    .boton {
+        flex: none;
+
+        width: 100%;
+    }
+
+    .retrato-portada {
+        width: min(80%, 270px);
+    }
+
+    .disponibilidad {
+        top: 16px;
+        right: -15px;
+
+        max-width: 150px;
+
+        padding: 9px 10px;
+
+        font-size: 8px;
+
+        letter-spacing: 1.2px;
+    }
+
+    .franja-conocimientos,
+    .seccion-perfil,
+    .seccion-conocimientos,
+    .seccion-formacion,
+    .seccion-contacto {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .grupos-conocimientos {
+        grid-template-columns: 1fr;
+    }
+
+    .enlace-contacto {
+        align-items: flex-start;
+
+        font-size: 13px;
+    }
+}
+
+
+/* ========================================
+   ACCESIBILIDAD
+======================================== */
+
+a:focus-visible {
+    outline: 3px solid #14243a;
+    outline-offset: 4px;
+}
+
+.barra-lateral a:focus-visible,
+.pie-pagina a:focus-visible {
+    outline-color: #f5f1e8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
