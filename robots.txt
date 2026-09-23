@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://portafolio-mario-aguirre.vercel.app/sitemap.xml
